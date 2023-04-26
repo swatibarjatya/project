@@ -1,0 +1,20 @@
+.article {
+padding: 16px;
+
+}
+
+.article_title {
+    font-size: 30px;
+text-transform: uppercase;
+margin-bottom: 5px;
+}
+
+.article_author {
+font-size: 18px;
+margin: 0;
+}
+
+.article_content {
+margin-top: 20px;
+font-size: 26px;
+}

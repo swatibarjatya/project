@@ -1,3 +1,7 @@
+Set up Hyperledger test network on mac
+
+https://dev.to/capriciousrebel/getting-started-with-hyperledger-fabric-on-macos-2937
+
 To start the network, run following commands from folder fabric-samples/test-network
 
 ./network.sh down
@@ -16,3 +20,6 @@ https://burakcanekici.medium.com/an-implementation-of-a-rest-api-to-your-custom-
 Hyperledger read the docs
 https://hyperledger-fabric.readthedocs.io/en/latest/write_first_app.html
 
+
+Install Mongodb for Mac
+https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/

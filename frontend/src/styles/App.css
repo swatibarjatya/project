@@ -1,0 +1,42 @@
+.app {
+    width: 90%;
+    margin: 0 auto;
+    min-height: 100vh;
+    display: flex; 
+    flex-direction: column;
+    color: rgb(32, 32, 32);
+    
+    
+}
+
+header {
+    padding: 20px 0;
+    text-align: center;
+}
+ 
+
+main {
+   flex-grow: 1;
+   display: flex;
+   flex-direction: column;  
+}
+
+.page { 
+   padding: 20px;
+   flex-grow: 1;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   align-items: center;
+   margin-top: 30px;
+}
+
+
+footer {
+    background-color: black;
+    color: azure;
+    letter-spacing: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 20px;
+}

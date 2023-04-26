@@ -1,0 +1,14 @@
+.login_form {
+
+    display: flex;
+    justify-content: center;
+    column-gap: 30px;
+    font-size: 30px;
+ }
+
+
+
+.form_input {
+    padding: 10px;
+    margin-left: 10px;
+}

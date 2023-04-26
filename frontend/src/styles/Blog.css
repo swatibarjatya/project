@@ -1,0 +1,6 @@
+.blog_title {
+    width: fit-content;
+    margin-bottom: 50px;
+    border-bottom: 2px solid black;
+    padding-bottom: 10px;
+}

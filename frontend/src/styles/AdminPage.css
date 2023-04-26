@@ -1,0 +1,19 @@
+.admin_wrapper {
+    position: relative;
+}
+
+
+.admin_button {
+    font-size: 20px;
+    position: absolute;
+    right: 0;
+    padding: 12px;
+    width: 110px;
+    background-color: rgb(248, 247, 247);
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.admin_button:hover {
+   background-color: rgb(221, 221, 221);
+}

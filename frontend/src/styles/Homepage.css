@@ -1,0 +1,26 @@
+.homepage_poster {
+    position: relative;
+}
+
+
+.homepage_img {
+max-width: 100%;
+height: auto;
+}
+
+
+.homepage_button {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: black;
+    letter-spacing: 8px;
+    border: 1px solid black;
+    padding: 30px 50px;
+    position: absolute;
+    top: 72%;
+    left: 55%;
+}
+
+.homepage_button:hover {
+    font-weight: bold;
+}

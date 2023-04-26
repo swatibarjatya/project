@@ -12,14 +12,18 @@ const { Gateway, Wallets } = require('fabric-network');
 const FabricCAServices = require('fabric-ca-client');
 const path = require('path');
 const { buildCAClient, registerAndEnrollUser, enrollAdmin } = require('./CAUtil.js');
-const { buildCCPOrg1, buildWallet } = require('./AppUtil.js');
+const { buildCCPOrg2, buildWallet, buildCCPOrg1 } = require('./AppUtil.js');
 
 const channelName = process.env.CHANNEL_NAME || 'movie';
-const chaincodeName = process.env.CHAINCODE_NAME || 'movie';
+//const chaincodeName = process.env.CHAINCODE_NAME || 'movie';
+const chaincodeToken = process.env.CHAINCODE_NAME || 'token_erc721';
 
 const mspOrg1 = 'Org1MSP';
-const walletPath = path.join('/Users/adityabarjatya/hackathon/project', 'wallet');
-const org1UserId = 'javascriptAppUser';
+//org1 wallet
+const walletPath = path.join('/Users/adityabarjatya/hackathon/project/wallet', 'org1');
+//org2 wallet
+//const walletPath = path.join('/Users/adityabarjatya/hackathon/project', 'wallet');
+const orgUserToken = 'tokenMinterOrg1';
 
 //This will be used to store the contract object
 var movieContract;
@@ -53,13 +57,15 @@ exports.init = async function () {
 		  });
 		console.log("wallet json path " + wallet);
 */
+		  console.log("enroll admin");
 		// in a real application this would be done on an administrative flow, and only once
 		await enrollAdmin(caClient, wallet, mspOrg1);
 
 		// in a real application this would be done only when a new user was required to be added
 		// and would be part of an administrative flow
 		try {
-			await registerAndEnrollUser(caClient, wallet, mspOrg1, org1UserId, 'org1.department1');
+			console.log("register and enroll user");
+			await registerAndEnrollUser(caClient, wallet, mspOrg1, orgUserToken, 'org1.department1');
 		} catch (error) {
 			console.error(`Failed to register user : ${error}`);
 		}
@@ -77,7 +83,7 @@ exports.init = async function () {
 			// signed by this user using the credentials stored in the wallet.
 			await gateway.connect(ccp, {
 				wallet,
-				identity: org1UserId,
+				identity: orgUserToken,
 				discovery: { enabled: true, asLocalhost: true } // using asLocalhost as this gateway is using a fabric network deployed locally
 			});
 
@@ -85,15 +91,17 @@ exports.init = async function () {
 			const network = await gateway.getNetwork(channelName);
 
 			// Get the contract from the network.
-			const contract  = network.getContract(chaincodeName);
+			const contract  = network.getContract(chaincodeToken);
 			movieContract = contract;
 
 			// Initialize a set of asset data on the channel using the chaincode 'InitLedger' function.
 			// This type of transaction would only be run once by an application the first time it was started after it
 			// deployed the first time. Any updates to the chaincode deployed later would likely not need to run
 			// an "init" type function.
-			console.log('\n--> Submit Transaction: InitLedger, function creates the initial set of assets on the ledger');
-			await contract.submitTransaction('InitLedger');
+			//console.log('\n--> Submit Transaction: InitLedger, function creates the initial set of assets on the ledger');
+			
+			//await contract.submitTransaction('InitLedger');
+			
 			console.log('*** Result: committed');
 
 		}catch(error){
