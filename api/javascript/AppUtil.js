@@ -9,10 +9,15 @@
 const fs = require('fs');
 const path = require('path');
 
-exports.buildCCPOrg1 = () => {
+exports.buildCCPOrg = (orgName) => {
 	// load the common connection configuration file
-	const ccpPath = path.resolve(__dirname, '..', '..', '..', '..', 'go', 'src', 'hyperledger', 'fabric-samples', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
-	const fileExists = fs.existsSync(ccpPath);
+	let ccpPath;
+	if(orgName == "org1")
+		ccpPath = path.resolve(__dirname, '..', '..', '..', '..', 'go', 'src', 'hyperledger', 'fabric-samples', 'test-network', 'organizations', 'peerOrganizations', 'org1.example.com', 'connection-org1.json');
+	else if(orgName == "org2")
+		ccpPath = path.resolve(__dirname, '..', '..', '..', '..', 'go', 'src', 'hyperledger', 'fabric-samples', 'test-network', 'organizations', 'peerOrganizations', 'org2.example.com', 'connection-org2.json');
+	
+		const fileExists = fs.existsSync(ccpPath);
 	if (!fileExists) {
 		throw new Error(`no such file or directory: ${ccpPath}`);
 	}

@@ -34,7 +34,7 @@ function ProductPage() {
           <p className='productPage_price'>
             <strong>Price:</strong> {product?.price}
           </p>
-          <button className='add_To_Cart'>Add to Cart</button>
+          <button className='add_To_Cart'>Book Now</button>
         </div>
       </div>
     </>

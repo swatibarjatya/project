@@ -5,7 +5,7 @@ function Header() {
   return (
     <>
       <Link className='header_title' to='/'>
-        Online Shop
+        ScreenIt - Online Ticketing Application
       </Link>
     </>
   );

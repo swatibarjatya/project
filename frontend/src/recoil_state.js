@@ -6,7 +6,7 @@ const products = atom({
 });
 
 const users = atom({
-  key: 'atoms',
+  key: 'users',
   default: [],
 });
 

@@ -36,7 +36,7 @@ function Nav() {
     <nav className='nav'>
       <ul className='nav_list'>
         <NavLink to='/productsList' className='nav_item'>
-          Products
+          Shows
         </NavLink>
         {/* {pathname === '/productsList' ? (
           <ul className='nav_category'>{categoriesList}</ul>
